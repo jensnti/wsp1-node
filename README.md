@@ -16,13 +16,13 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
 sudo apt install nodejs
 ```
-Nu kan du kolla din version av Node med
+Nu kan du kolla din version av Node med(bör vara 12.x)
 
 ```bash
 node --version
 ```
 
-Du bör även ha npm(node package manager) installerat nu, kör
+Du bör även ha npm(node package manager) installerat nu, kör(bör vara 6.x)
 
 ```bash
 npm --version
@@ -47,15 +47,19 @@ express --help
 ### Ett första projekt
 
 För att "scaffolda" ett projekt så kör du enklast express i en mapp som du ska spara det i.
+Skapa en mapp för ditt projekt, gå in i den och kör följande express kommando
 
 ```bash
-mkdir test
-cd test
-express
+mkdir PROJEKTNAMN
+cd PROJEKTNAMN
+express --view=hbs --css sass --git
 ```
 
-Detta ger oss grunden för en vår app, för att färdigställa installationen så behöver du även installera
-ett antal paket som express kräver. Dessa är listade i filen package.json. Dessa är
+Detta ger oss grunden för en vår app. Vi kör kommandot med tilläggen view,css och git. Detta låter oss välja
+vilken view motor vi vill att express ska använda. I det här fallet så är vår view [Handlebars](https://handlebarsjs.com/).
+Vi säger även till express att vi ska använda sass för css.
+Slutligen så skapar express en .gitignore fil åt oss så att vi inte laddar upp saker som inte har något på git att göra(som node_modules mappen).
+För att färdigställa installationen så behöver du slutligen installera de paket som express använder. Paketen är listade i filen package.json som npm använder för att hålla koll på vilka paket som din app använder. Paketen är
 
 ```javascript
 "dependencies": {
@@ -69,7 +73,7 @@ ett antal paket som express kräver. Dessa är listade i filen package.json. Des
 },
 ```
 
-För att göra det kör du kommandot
+För att installera paketen kör du
 
 ```bash
 npm install
@@ -140,7 +144,7 @@ lägga till och ändra reglerna i den. För min egen del så lägger jag alltid 
 
 ```javascript
 rules: {
-  // "indent": ["error", 4], // fel vid annan indentering än 4 spaces, men jag försöker nu lära mig att köra 2 pga js standard
+  // "indent": ["error", 4], // fel vid annan indentering än 4 spaces, 2 är standardjs
   "semi": ["error", "always"] // fel om det saknas semikolon, personlig preferens
 }
 ```
