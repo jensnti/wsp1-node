@@ -52,11 +52,11 @@ Skapa en mapp för ditt projekt, gå in i den och kör följande express kommand
 ```bash
 mkdir PROJEKTNAMN
 cd PROJEKTNAMN
-express --view=hbs --css sass --git
+express --view=pug --css sass --git
 ```
 
 Detta ger oss grunden för en vår app. Vi kör kommandot med tilläggen view,css och git. Detta låter oss välja
-vilken view motor vi vill att express ska använda. I det här fallet så är vår view [Handlebars](https://handlebarsjs.com/).
+vilken view motor vi vill att express ska använda. I det här fallet så är vår view [pug](https://pugjs.org/).
 Vi säger även till express att vi ska använda sass för css.
 Slutligen så skapar express en .gitignore fil åt oss så att vi inte laddar upp saker som inte har något på git att göra(som node_modules mappen).
 För att färdigställa installationen så behöver du slutligen installera de paket som express använder. Paketen är listade i filen package.json som npm använder för att hålla koll på vilka paket som din app använder. Paketen är
@@ -66,10 +66,10 @@ För att färdigställa installationen så behöver du slutligen installera de p
   "cookie-parser": "~1.4.4",
   "debug": "~2.6.9",
   "express": "~4.16.1",
-  "hbs": "~4.0.4",
   "http-errors": "~1.6.3",
   "morgan": "~1.9.1",
-  "node-sass-middleware": "0.11.0"
+  "node-sass-middleware": "0.11.0",
+  "pug": "2.0.0-beta11"
 },
 ```
 
@@ -148,6 +148,40 @@ rules: {
   "semi": ["error", "always"] // fel om det saknas semikolon, personlig preferens
 }
 ```
+## Lär känna din app
+
+Nu är vår setup i stort sett klar för att börja ändra på vår app. Vi har installerat de paket som krävs och 
+vi kan köra vår server. Nästa steg är att titta lite på express filstruktur och hur du arbetar med det.
+Efter installationen så ser express filstruktur ut såhär
+
+  bin/
+    www
+  node_modules/
+  public/
+    images/
+    javascript/
+    stylesheets/
+  routes/
+    index.js
+    users.js
+  views/
+    error.pug
+    index.pug
+    layout.pug
+  app.js
+  package.json
+
+I roten finns app.js och package.json samt en del andra konfigurationsfiler. När du startar servern så kör npm 
+start scriptet från package.json. Det kör i sin tur www filen från bin/ mappen som sedan startar app.js från rooten.
+
+app.js laddar in servers routes från routes/ foldern, de tar i sin tur själva html/viewen från views/ mappen och visar detta.
+Statiskt innehåller finns i public/ mappen.
+
+### Html och css
+
+För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt de andra sidorna.
+
+
 
 
 ## Markdown
