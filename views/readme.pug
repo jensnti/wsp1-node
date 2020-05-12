@@ -1,0 +1,9 @@
+extends layout
+
+block title
+  title= Readme
+
+block content
+  main
+    .container
+      include:markdown-it ../README.md

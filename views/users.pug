@@ -1,0 +1,13 @@
+extends layout
+
+block title
+    title Users
+
+block content
+  main
+    .container
+      h1= title
+      p.lead Här är ett exempel på iteration
+      ul
+        each user in users
+          li= user

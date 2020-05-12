@@ -1,9 +1,16 @@
 doctype html
-html
+html.h-100
   head
-    title= title
+    block title
+      title= Express
+    
+    link(href='https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Lora:ital@1&family=Montserrat:wght@400;600&display=swap', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    include nav.pug
+  body.h-100.d-flex
+    block nav
+      include nav.pug
     block content
+    block footer
+      include footer.pug
+    

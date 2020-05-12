@@ -3,16 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "compile": "sass --watch public/stylesheets/"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jstransformer-markdown-it": "^2.1.0",
     "morgan": "~1.9.1",
     "node-sass-middleware": "0.11.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "sass": "^1.26.5"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

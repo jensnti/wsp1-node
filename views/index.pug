@@ -1,6 +1,17 @@
 extends layout
 
+block title
+    title Home
+
 block content
-  main.container
-    h1= title
-    p Welcome to #{title}
+  main
+    .container
+      h1= title
+      p.lead Välkommen till #{title}
+      p Det här är startkoden från git repot, läs mer på 
+        a(href='https://github.com/jensnti/wsp1-node') Github
+        | .
+
+      img(src="/images/nti_logo_white_umea.svg", alt="alt")
+      img(src="/images/nti_logo_white.svg", alt="alt")
+      img.invert(src="/images/nti_icon_white.svg", alt="alt")
