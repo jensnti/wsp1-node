@@ -36,7 +36,7 @@ npm --version
 ```
 
 Nu när vi har Node installerat tillsammans med npm så kan vi installera express.
-[Express](https://expressjs.com/) är ett minimalistiskt ramverk för node. Expres låter
+[Express](https://expressjs.com/) är ett minimalistiskt ramverk för node. Express låter
 oss skapa routes och annat för vår applikation. Vi kommer även att installera en generator för 
 Express för att förenkla vår setup(scaffolding).
 Vi kommer att installera Express globalt på systemet, därför kommer du att behöva köra följande som
@@ -53,8 +53,8 @@ express --help
 
 ### Ett första projekt
 
-För att "scaffolda" ett projekt så kör du enklast express i en mapp som du ska spara det i.
-Skapa en mapp för ditt projekt, gå in i den och kör följande express kommando
+För att skapa grunden för ett projekt så kör du enklast express i den mapp du arbetar i(var noga).
+Skapa en mapp för ditt projekt, gå in i den(cd) och kör express
 
 ```bash
 mkdir PROJEKTNAMN
@@ -186,8 +186,30 @@ start scriptet från package.json. Det kör i sin tur www filen från bin/ mappe
 app.js laddar in servers routes från routes/ foldern, de tar i sin tur själva html/viewen från views/ mappen och visar detta.
 Statiskt innehåller finns i public/ mappen.
 
+### Routes
+
+Routerna som existerar är index och users. Index hanterar anrop till / och users till /users, inte helt otippat. Detta system
+låter oss strukturera koden och hur vi hanterar applikationens rutter. Koden för index routern ser ut som följer, på 
+[git](https://github.com/jensnti/wsp1-node/blob/ac1733d144ed049550e30fa2a711ae876ef9c3cd/routes/index.js)
+
+```javascript
+  /* GET home page. */
+  router.get('/', function (req, res, next) {
+    // render view med data
+    res.render('index', { data: 'Data jag vill skicka till sidan' });
+  });
+```
+
+Själva views laddningen sker genom ett middleware i app.js som sätter path till views samt vilken motor som ska användas. Det finns många
+olika middleware av olika typer och det är en viktig del i Express funktion. Enkelt sagt så är middleware insticksprogram som gör något
+för Express och vår webbserver.
+
+Om du vill kolla koden innan jag började ändra så mycket i projektet så kolla igenom [commit historiken](https://github.com/jensnti/wsp1-node/commits/master). De commit som ungefär visar starten är [följande](https://github.com/jensnti/wsp1-node/tree/ac1733d144ed049550e30fa2a711ae876ef9c3cd), detta för att jag 
+gjorde en del ändringar och bytte view-motor till pug.
+
 ## Hur funkar det?
 
+För att titta på hur det fungerar så ska vi börja ändra i koden.
 För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt de andra sidorna.
 
 
