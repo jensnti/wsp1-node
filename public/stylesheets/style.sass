@@ -21,39 +21,63 @@ html
   font-size: 62.5%
 
 body
-  line-height: 1.5
-  font-family: fonts.$body
   flex-direction: column
   flex-wrap: nowrap
   background-color: colors.$color3
+  font-family: fonts.$body
+  font-size: 1.8rem
+  line-height: 1.5
+  color: lighten(colors.$color1, 10%)
+
+main
+  .container
+    padding: 72px 0
 
 a
-  color: colors.$color1
+  color: lighten(colors.$color1, 5%)
   text-decoration: none
 
   &:hover
-    color: colors.$color2
+    color: darken(colors.$color1, 5%)
 
 h1, h2, h3, h4
   font-family: fonts.$header
-  margin-bottom: 0.5rem
-  line-height: 1.5
+  margin-bottom: 1rem
+  line-height: 1.2
   font-weight: 600
 
 h1
   font-size: 4rem
-  color: darken(colors.$color5, 5%)
+  color: colors.$color5
 
 p
-  font-size: 1.6rem
-  font-family: fonts.$body
-  color: lighten(colors.$color1, 10%)
+  margin-bottom: 1.2rem
 
 .h-100
   height: 100% !important
 
 .d-flex
   display: flex
+
+.container
+  width: 100%
+  padding-left: 1rem
+  padding-right: 1rem
+  margin-left: auto
+  margin-right: auto
+  box-sizing: border-box
+
+  @include small
+    max-width: 540px
+
+  @include medium
+    max-width: 720px
+
+  @include large
+    max-width: 960px
+
+  @include x-large
+    max-width: 1140px
 
 .navbar
   display: flex
@@ -81,38 +105,32 @@ p
   &-link:hover
     color: lighten(colors.$color1, 5%)
 
-.container
-  width: 100%
-  padding-left: 1rem
-  padding-right: 1rem
-  margin-left: auto
-  margin-right: auto
-  box-sizing: border-box
+.brand
+  padding: .5rem 1rem 0rem
 
-  @include small
-    max-width: 540px
+  img
+    width: 32px
+    height: 32px
 
-  @include medium
-    max-width: 720px
-
-  @include large
-    max-width: 960px
-
-  @include x-large
-    max-width: 1140px
+.lead
+  font-size: 2rem
+  font-family: fonts.$lead
 
 .footer
   margin-top: auto
   padding-top: 8rem
   padding-bottom: 4rem
-  background-image: linear-gradient(colors.$color3, darken(colors.$color5, 5%))
+  background-image: linear-gradient(colors.$color3, colors.$color5)
 
 .mute
-  color: transparentize(colors.$color2, 0.4)
+  color: transparentize(colors.$color2, 0.2)
 
-main
-  .container
-    padding: 60px 15px 0
+.small
+  font-size: 1.4rem
 
 .invert
   filter: invert(1)
+
+.list
+  padding-left: 0
+  margin-bottom: 1.2rem

@@ -154,6 +154,7 @@ Nu är vår setup i stort sett klar för att börja ändra på vår app. Vi har 
 vi kan köra vår server. Nästa steg är att titta lite på express filstruktur och hur du arbetar med det.
 Efter installationen så ser express filstruktur ut såhär
 
+```
   bin/
     www
   node_modules/
@@ -170,6 +171,7 @@ Efter installationen så ser express filstruktur ut såhär
     layout.pug
   app.js
   package.json
+```
 
 I roten finns app.js och package.json samt en del andra konfigurationsfiler. När du startar servern så kör npm 
 start scriptet från package.json. Det kör i sin tur www filen från bin/ mappen som sedan startar app.js från rooten.
