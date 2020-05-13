@@ -9,15 +9,15 @@ body {
 }
 
 main .container {
-  padding-top: 5rem;
+  padding-top: 6rem;
 }
 
 a {
-  color: #dde0dc;
+  color: #d0d4ce;
   text-decoration: none;
 }
 a:hover {
-  color: #c4c8c1;
+  color: #b7bcb3;
 }
 
 h1, h2, h3, h4 {
@@ -30,6 +30,11 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 3rem;
   color: #2e4c5c;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
 }
 
 p {
@@ -78,12 +83,13 @@ p {
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
-  background-color: #519e8b;
+  background-color: rgba(81, 158, 139, 0.95);
+  z-index: 100;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
 }
 @media (max-width: 768px) {
   .navbar {
@@ -96,17 +102,17 @@ p {
   border: none;
   background-color: transparent;
 }
-.navbar-toggle:focus {
-  outline-style: none;
-}
 @media (min-width: 768px) {
   .navbar-toggle {
     display: none;
   }
 }
+.navbar-toggle:focus {
+  outline-style: none;
+}
 .navbar-toggle-icon {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
 }
 .navbar-toggle-icon:hover {
   filter: brightness(0.8);
@@ -145,24 +151,29 @@ p {
   color: #1d303a;
 }
 
-.collapse {
+.show {
   display: block !important;
 }
 
 .brand {
-  height: 32px;
+  height: 48px;
   padding-right: 0.5rem;
 }
 .brand:hover {
   filter: brightness(0.8);
 }
 .brand img {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
 }
 
 .page-heading {
-  padding-top: 4rem;
+  padding-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .page-heading {
+    padding-top: 2rem;
+  }
 }
 
 .lead {
@@ -201,7 +212,7 @@ p {
 }
 @media (max-width: 768px) {
   .bubbles {
-    height: 6rem;
+    height: 7rem;
     margin-top: -1rem;
   }
 }

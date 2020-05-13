@@ -17,6 +17,10 @@
   @media (min-width: 1200px)
     @content
 
+@mixin small-max
+  @media (max-width: 576px)
+    @content
+
 @mixin medium-max
   @media (max-width: 768px)
     @content
@@ -32,14 +36,14 @@ body
 
 main
   .container
-    padding-top: 5rem
+    padding-top: 6rem
 
 a
-  color: lighten(colors.$color1, 5%)
+  color: colors.$color1
   text-decoration: none
 
   &:hover
-    color: darken(colors.$color1, 5%)
+    color: darken(colors.$color1, 10%)
 
 h1, h2, h3, h4
   font-family: fonts.$header
@@ -50,6 +54,8 @@ h1, h2, h3, h4
 h1
   font-size: 3rem
   color: colors.$color5
+  @include medium-max
+    font-size: 2rem
 
 p
   margin-bottom: 1rem
@@ -67,16 +73,12 @@ p
   margin-left: auto
   margin-right: auto
   box-sizing: border-box
-
   @include small
     max-width: 540px
-
   @include medium
     max-width: 720px
-
   @include large
     max-width: 960px
-
   @include x-large
     max-width: 1140px
 
@@ -86,40 +88,33 @@ p
   flex-flow: row nowrap
   justify-content: flex-start
   align-items: center
-  background-color: colors.$color3
+  background-color: transparentize(colors.$color3, .05)
+  z-index: 100
   position: fixed
   top: 0
   right: 0
   left: 0
-  padding: .5rem 1rem
-
+  padding: 1rem 2rem
   @include medium-max
     justify-content: space-between
     flex-wrap: wrap
     align-items: baseline
-
   &-toggle
     border: none
     background-color: transparent
-
-    &:focus
-      outline-style: none
-
     @include medium
       display: none
-
+    &:focus
+      outline-style: none
   &-toggle-icon
-    width: 32px
-    height: 32px
-
+    width: 48px
+    height: 48px
     &:hover
       filter: brightness(.8)
-
   &-collapse
     display: block
     flex-basis: 100%
     flex-grow: 1
-
     @include medium-max
       display: none
 
@@ -128,34 +123,31 @@ p
   flex-direction: row
   font-family: fonts.$header
   font-size: 1.4rem
-
   @include medium-max
     flex-direction: column
-
   &-link
     color: colors.$color5
     @include medium
       padding-left: .5rem
-
   &-link:hover
     color: darken(colors.$color5, 10%)
 
-.collapse
+.show
   display: block !important
 
 .brand
-  height: 32px
+  height: 48px
   padding-right: .5rem
-
   &:hover
     filter: brightness(.8)
-
   img
-    width: 32px
-    height: 32px
+    width: 48px
+    height: 48px
 
 .page-heading
-  padding-top: 4rem
+  padding-top: .5rem
+  @include medium
+    padding-top: 2rem
 
 .lead
   font-size: 1.4rem
@@ -184,9 +176,8 @@ p
   height: 8rem
   float: right
   margin-top: -2rem
-
   @include medium-max
-    height: 6rem
+    height: 7rem
     margin-top: -1rem
 
 .bubbles:hover
