@@ -1,11 +1,11 @@
 # Introduktion Node.js och Express
 
- * [Installation och förberedelse](#installation-och-förberedelse)
+ 1. [Installation och förberedelse](#installation-och-förberedelse)
     * [Ett första projekt](#ett-första-projekt)
     * [Nodemon](#nodemon)
     * [Eslint](#eslint)
     * [Lär känna din app](#lär-känna-din-app)
- * [Hur funkar det?](#hur-funkar-det)
+ 2. [Hur funkar det?](#hur-funkar-det)
 
 ## Installation och förberedelse
 
