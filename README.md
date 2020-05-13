@@ -1,5 +1,12 @@
 # Introduktion Node.js och Express
 
+ * [Installation och förberedelse](#installation-och-förberedelse)
+    * [Ett första projekt](#ett-första-projekt)
+    * [Nodemon](#nodemon)
+    * [Eslint](#eslint)
+    * [Lär känna din app](#lär-känna-din-app)
+ * [Hur funkar det?](#hur-funkar-det)
+
 ## Installation och förberedelse
 
 Du behöver köra Ubuntu under WSL.
@@ -87,7 +94,7 @@ npm start
 
 Surfa sedan till [localhost:3000](http://localhost:3000) och du är igång!
 
-## Nodemon
+### Nodemon
 
 Ett väldigt praktiskt tillägg till node är nodemon, det låter oss starta en server som automatiskt
 startar om när vi ändrar på filer. Detta gör att vi slipper sitta och starta om node såfort vi ändrar i någon 
@@ -107,7 +114,7 @@ Sedan redigerar vi package.json och gör följande ändring
 
 Testa sedan att starta servern igen och surfa till [localhost:3000](http://localhost:3000)
 
-## Eslint
+### Eslint
 
 Det kan vara väldigt användbart och praktiskt att låta ens IDE hjälpa en med fel och kodformatering. När vi 
 skriver javascript tillsammans med Node så finns det ett paket som heter [eslint](https://eslint.org/) som hjälper med detta.
@@ -148,7 +155,7 @@ rules: {
   "semi": ["error", "always"] // fel om det saknas semikolon, personlig preferens
 }
 ```
-## Lär känna din app
+### Lär känna din app
 
 Nu är vår setup i stort sett klar för att börja ändra på vår app. Vi har installerat de paket som krävs och 
 vi kan köra vår server. Nästa steg är att titta lite på express filstruktur och hur du arbetar med det.
@@ -179,7 +186,7 @@ start scriptet från package.json. Det kör i sin tur www filen från bin/ mappe
 app.js laddar in servers routes från routes/ foldern, de tar i sin tur själva html/viewen från views/ mappen och visar detta.
 Statiskt innehåller finns i public/ mappen.
 
-### Html och css
+## Hur funkar det?
 
 För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt de andra sidorna.
 
