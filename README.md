@@ -210,9 +210,61 @@ gjorde en del ändringar och bytte view-motor till pug.
 ## Hur funkar det?
 
 För att titta på hur det fungerar så ska vi börja ändra i koden.
-För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt de andra sidorna.
+För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt andra sidor. Express
+generator kommer med en router för en user sida som endast svarar med en resurs. Vi kommer att byta ut den routen för att svara
+med en user sida, så att vi kan testa och använda navigationen vi skapar.
 
+### Pug
 
+Express stöder ett flertal olika templat-motorer, i det här exemplet så kommer vi att arbeta med en som heter Pug. Varför pug, mest
+för att jag har använt den tidigare och kört den i kursen. Det har fungerat bra och de flesta har förstått sig på den. Pug är snarlikt html
+och relativt enkelt att komma igång med, syntaxen är förhållandevis enkel och det gör det enkelt att komma igång.
+
+Innehållet på sidan struktureras med indenteringar(bra för att öva kodstruktur) och html taggarna skrivs med namn, men de behöver inte avslutas. 
+Avslutandet av taggen baseras på indenteringen. Så om jag vill lägga element i ett annat så gör jag det med indentering.
+
+```html
+  div.classname
+    h1 Rubrik
+    p Brödtext
+    p Lorem...
+      a(href='#') Länk i p texten
+```
+
+Jag ska inte upprepa [dokumentationen](https://pugjs.org/api/getting-started.html) här, utan det är bäst att du tittar igenom det och sedan använder den vid behov. Det finns även ett antal extensions för Visual studio code för den som vill ha stöd i sin IDE.
+
+#### Layout
+
+#### Index
+
+#### Nav
+
+### Sass
+
+Middleware eller inte.
+```@Use``` fungerade inte med middleware för mig, så jag fick se till att köra sass utan middleware. Då kan vi behöva installera sass,
+
+```bash
+  npm install --save-dev sass
+```
+Vi uppdaterar sedan package.json med en script rad för att kompilera vår css.
+
+```javascript
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "compile": "sass --watch public/stylesheets/"
+  },
+```
+
+Vi kan sedan köra npm run compile och den kommer att köra sass och söka efter eventuella ändringar i källfilerna.
+
+## Design
+
+För projektet så skapade jag ett par skisser med figma, du hittar dem [här](https://www.figma.com/file/tngmvFgOZ96E1xHm9Igr9o/Webbserver-node?node-id=0%3A1).
+Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. Som exempel så letade jag reda på ett färgschema jag gillade först, vilket påminde mig om något under vatten.
+Jag gillade det, men hur jag använder det stöter på patrull när det gäller kontrast, så jag skruvade lite på hur ljusa/mörka färgerna är, men inte så mycket som kanske krävdes, eftersom jag tyckte jag förlorade känslan. Här gjorde jag en avvägning att behålla min design och inte skrota den pga. kontrast.
+
+När jag arbetade med den mycket långa titeln, Webbserverprogrammering så stötte jag på patrull på det tekniska. Det visade sig att ett väldigt långt ord som inte kan avstavas av webbläsaren pajjar hela sidan tillsammans med ```meta viewport scale``` . Det stör ut hur resten av sidan skalas och resultatet blev hemskt. Lösningen blev att lägga till ett bindestreck mellan Webbserver och programmering, Webbserver-programmering. Inte vad jag kanske önskat, men enklaste och bästa lösningen. 
 
 
 ## Markdown
