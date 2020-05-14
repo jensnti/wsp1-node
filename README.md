@@ -6,6 +6,12 @@
     * [Eslint](#eslint)
     * [Lär känna din app](#lär-känna-din-app)
  2. [Hur funkar det?](#hur-funkar-det)
+    * [Pug](#pug)
+    * [Layout](#layout)
+    * [Index](#index)
+    * [Nav](#nav)
+    * [Sass](#sass)
+  3. [Design](#design)
 
 ## Installation och förberedelse
 
@@ -242,7 +248,7 @@ En start kan vara att konvertera redan färdiga sidor till pug, det finns ett ot
 Den struktur som vi kommer att använda för projektets views med pug är att vi utgår från filen layout.pug. Denna fil anropar vi sedan genom
 våra andra layout filer.
 
-Så i i index.pug så anropar vi layout.pug genom att skriva 
+Så i index.pug så anropar vi layout.pug genom att skriva 
 ```html
   extends layout
 ```
@@ -280,10 +286,16 @@ då kompileras det till css.
 ## Design
 
 För projektet så skapade jag ett par skisser med figma, du hittar dem [här](https://www.figma.com/file/tngmvFgOZ96E1xHm9Igr9o/Webbserver-node?node-id=0%3A1).
-Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. Som exempel så letade jag reda på ett färgschema jag gillade först, vilket påminde mig om något under vatten.
-Jag gillade det, men hur jag använder det stöter på patrull när det gäller kontrast, så jag skruvade lite på hur ljusa/mörka färgerna är, men inte så mycket som kanske krävdes, eftersom jag tyckte jag förlorade känslan. Här gjorde jag en avvägning att behålla min design och inte skrota den pga. kontrast.
+Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. 
 
-När jag arbetade med den mycket långa titeln, Webbserverprogrammering så stötte jag på patrull på det tekniska. Det visade sig att ett väldigt långt ord som inte kan avstavas av webbläsaren pajjar hela sidan tillsammans med ```meta viewport scale``` . Det stör ut hur resten av sidan skalas och resultatet blev hemskt. Lösningen blev att lägga till ett bindestreck mellan Webbserver och programmering, Webbserver-programmering. Inte vad jag kanske önskat, men enklaste och bästa lösningen. 
+Som exempel så letade jag reda på ett färgschema jag gillade först, vilket påminde mig om något under vatten. Jag gillade det, men hur jag använder det stöter på patrull när det gäller kontrast, så jag skruvade lite på hur ljusa/mörka färgerna är, men inte så mycket som kanske krävdes, eftersom jag tyckte jag förlorade känslan. Här gjorde jag en avvägning att behålla min design och inte skrota den pga. kontrast.
+
+När jag arbetade med den mycket långa titeln, Webbserverprogrammering så stötte jag på patrull på det tekniska. Det visade sig att ett väldigt långt ord som inte kan avstavas av webbläsaren pajjar hela sidan tillsammans med ```meta viewport scale```. Det stör ut hur resten av sidan skalas och resultatet blev hemskt. Lösningen blev att lägga till ett bindestreck mellan Webbserver och programmering, Webbserver-programmering. Inte vad jag kanske önskat, men enklaste och bästa lösningen. 
+
+Det är avvägningar som behöver göras oavsett om en har skisser att utgå från eller inte, men att han en skiss att stödja sig på genom designen underlättar alltid. Att formulera din ide och slipa på den är en del i en process som fortsätts när du kodar din html/css och att göra det i flera steg leder alltid till
+ett bättre slutresultat.
+
+### Från html till webbplats
 
 
 ## Markdown
