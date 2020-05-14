@@ -222,18 +222,30 @@ och relativt enkelt att komma igång med, syntaxen är förhållandevis enkel oc
 
 Innehållet på sidan struktureras med indenteringar(bra för att öva kodstruktur) och html taggarna skrivs med namn, men de behöver inte avslutas. 
 Avslutandet av taggen baseras på indenteringen. Så om jag vill lägga element i ett annat så gör jag det med indentering.
+Pug stödjer variabler, iteration och mixins(funktioner typ) bland annat.
 
 ```html
-  div.classname
-    h1 Rubrik
-    p Brödtext
+  div#idname
+    h1.classname Rubrik
+    p.class1.class2 Brödtext
+      | Fortsatt text i p elementet ovan.
     p Lorem...
       a(href='#') Länk i p texten
 ```
 
 Jag ska inte upprepa [dokumentationen](https://pugjs.org/api/getting-started.html) här, utan det är bäst att du tittar igenom det och sedan använder den vid behov. Det finns även ett antal extensions för Visual studio code för den som vill ha stöd i sin IDE.
 
+En start kan vara att konvertera redan färdiga sidor till pug, det finns ett otal konverterare som du kan hitta genom [google](https://www.google.com/search?q=html+to+pug&oq=html+to+pug&aqs=chrome..69i57j0l6j69i60.4848j0j7&sourceid=chrome&ie=UTF-8).
+
 #### Layout
+
+Den struktur som vi kommer att använda för projektets views med pug är att vi utgår från filen layout.pug. Denna fil anropar vi sedan genom
+våra andra layout filer.
+
+Så i i index.pug så anropar vi layout.pug genom att skriva 
+```html
+  extends layout
+```
 
 #### Index
 
@@ -241,13 +253,19 @@ Jag ska inte upprepa [dokumentationen](https://pugjs.org/api/getting-started.htm
 
 ### Sass
 
-Middleware eller inte.
-```@Use``` fungerade inte med middleware för mig, så jag fick se till att köra sass utan middleware. Då kan vi behöva installera sass,
+Sass kan installeras med npm eller utan, för att installera paketet utan npm så går det att göra detta med apt under Ubuntu. Liknande finns
+förstås med Windows. Hursomhelst så kan det vara enklast att lägga till npm paketet. Vill du så kan du såklart lägga till det globalt med -g 
+flaggan.
+
+Projektet vi arbetar med nu har en middleware installerad för att kompilera .sass filerna till .css filer, det fungerar i överlag bra, men
+i det här projektet ville jag dela upp filerna något och använda sass ```@Use``` för att inkludera filer. Detta resulterade i ett kompileringsfel med sass
+middleware och fungerade inte. Av den anledningen installerade jag sass separat och skrev ett script kommando i projektets package.json för att kompilera min css. På grund av detta kan vi behöva installera sass.
 
 ```bash
   npm install --save-dev sass
 ```
-Vi uppdaterar sedan package.json med en script rad för att kompilera vår css.
+
+Uppdatering till package.json's script del.
 
 ```javascript
   "scripts": {
@@ -256,7 +274,8 @@ Vi uppdaterar sedan package.json med en script rad för att kompilera vår css.
   },
 ```
 
-Vi kan sedan köra npm run compile och den kommer att köra sass och söka efter eventuella ändringar i källfilerna.
+Vi kan sedan köra npm run compile och den kommer att köra sass och söka efter eventuella ändringar i källfilerna. Så när vi sparar vår sass fil,
+då kompileras det till css.
 
 ## Design
 
