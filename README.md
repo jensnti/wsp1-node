@@ -13,10 +13,10 @@
       * [Nav](#nav)
       * [Users](#users)
     * [Sass](#sass)
-      * [Style.sass](#style.sass)
+      * [Style.sass](#stylesass)
   3. [Design](#design)
 
-## Installation och förberedelse
+# Installation och förberedelse
 Du behöver köra Ubuntu under WSL.
 Vi kommer att köra Node version 12, vilket är deras LTS(long term support) version.
 För att installera detta behöver vi göra lite annorlunda än vanligt med ubuntu, detta för att
@@ -52,7 +52,7 @@ För att kolla om det gick som tänkt så kan du köra
 express --help
 ```
 
-### Ett första projekt
+## Ett första projekt
 För att skapa grunden för ett projekt så kör du enklast express i den mapp du arbetar i(var noga).
 Skapa en mapp för ditt projekt, gå in i den(cd) och kör express
 ```Shell
@@ -87,7 +87,7 @@ npm start
 ```
 Surfa sedan till [localhost:3000](http://localhost:3000) och du är igång!
 
-### Nodemon
+## Nodemon
 Ett väldigt praktiskt tillägg till node är nodemon, det låter oss starta en server som automatiskt
 startar om när vi ändrar på filer. Detta gör att vi slipper sitta och starta om node såfort vi ändrar i någon 
 fil.
@@ -103,7 +103,7 @@ Sedan redigerar vi package.json och gör följande ändring
 ```
 Testa sedan att starta servern igen och surfa till [localhost:3000](http://localhost:3000)
 
-### Eslint
+## Eslint
 Det kan vara väldigt användbart och praktiskt att låta ens IDE hjälpa en med fel och kodformatering. När vi 
 skriver javascript tillsammans med Node så finns det ett paket som heter [eslint](https://eslint.org/) som hjälper med detta.
 För att installera det så kör du följande kommando
@@ -140,7 +140,7 @@ rules: {
 }
 ```
 
-### Lär känna din app
+## Lär känna din app
 Nu är vår setup i stort sett klar för att börja ändra på vår app. Vi har installerat de paket som krävs och 
 vi kan köra vår server. Nästa steg är att titta lite på express filstruktur och hur du arbetar med det.
 Efter installationen så ser express filstruktur ut såhär
@@ -168,7 +168,7 @@ start scriptet från package.json. Det kör i sin tur www filen från bin/ mappe
 app.js laddar in servers routes från routes/ foldern, de tar i sin tur själva html/viewen från views/ mappen och visar detta.
 Statiskt innehåller finns i public/ mappen.
 
-### Routes
+## Routes
 Routerna som existerar är index och users. Index hanterar anrop till / och users till /users, inte helt otippat. Detta system
 låter oss strukturera koden och hur vi hanterar applikationens rutter. Koden för index routern ser ut som följer, på 
 [git](https://github.com/jensnti/wsp1-node/blob/ac1733d144ed049550e30fa2a711ae876ef9c3cd/routes/index.js)
@@ -187,13 +187,13 @@ för Express och vår webbserver.
 Om du vill kolla koden innan jag började ändra så mycket i projektet så kolla igenom [commit historiken](https://github.com/jensnti/wsp1-node/commits/master). De commit som ungefär visar starten är [följande](https://github.com/jensnti/wsp1-node/tree/ac1733d144ed049550e30fa2a711ae876ef9c3cd), detta för att jag 
 gjorde en del ändringar och bytte view-motor till pug.
 
-## Hur funkar det?
+# Hur funkar det?
 För att titta på hur det fungerar så ska vi börja ändra i koden.
 För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt andra sidor. Express
 generator kommer med en router för en user sida som endast svarar med en resurs. Vi kommer att byta ut den routen för att svara
 med en user sida, så att vi kan testa och använda navigationen vi skapar.
 
-### Pug
+## Pug
 Express stöder ett flertal olika templat-motorer, i det här exemplet så kommer vi att arbeta med en som heter Pug. Varför pug, mest
 för att jag har använt den tidigare och kört den i kursen. Det har fungerat bra och de flesta har förstått sig på den. Pug är snarlikt html
 och relativt enkelt att komma igång med, syntaxen är förhållandevis enkel och det gör det enkelt att komma igång.
@@ -215,7 +215,7 @@ Jag ska inte upprepa [dokumentationen](https://pugjs.org/api/getting-started.htm
 
 En start kan vara att konvertera redan färdiga sidor till pug, det finns ett otal konverterare som du kan hitta genom [google](https://www.google.com/search?q=html+to+pug&oq=html+to+pug&aqs=chrome..69i57j0l6j69i60.4848j0j7&sourceid=chrome&ie=UTF-8).
 
-#### Layout
+### Layout
 Den struktur som vi kommer att använda för projektets views med pug är att vi utgår från filen layout.pug. Denna fil anropar vi sedan genom
 våra andra layout filer.
 
@@ -239,7 +239,7 @@ html(lang='sv')
 ```
 Jag har utvecklat meta delen något samt lagt till språk-attributet på html elementet. 
 
-#### Index
+### Index
 När vi nu kollar på ```views/index.pug``` så är det viktigt att vi tittar på ```routes/index.js``` tillsammans med dem. Då det är routes filen som kallar på ```res.render()``` funktionen för att visa den view vi efterfrågar.
 ```javascript
 // File: routes/index.js
@@ -260,7 +260,7 @@ block content
 ```
 Här ser vi även på hur Pug hanterar title värdet som vi skickade till templaten. Läs mer om hur du jobbar med template locals [här](https://pugjs.org/language/interpolation.html).
 
-#### Nav
+### Nav
 En av fördelarna med Pug är att vi kan inkludera och extenda våra templater så vi kan återanvända kod. Det leder till enklare utveckling och mindre fel.
 Ett bra exempel på något som vi kan återanvända är en navigation på en webbsida. Så vi ska nu skapa och lägga till en top-navigation.
 Börja med att lägga till följande kod i ```views/layout.pug``` efter body taggen(behåll det efterfölljande content blocket).
@@ -284,7 +284,7 @@ nav
 ```
 Spara filerna och ladda om sidan, du kommer nu se att ```nav.pug``` inkluderas och att du kan följa länkarna. Klickar du på users så kommer enbart Express ```res.send``` resultat visas.
 
-#### Users
+### Users
 Vi ska nu testa att ändar den route som express har för users. I ```routes/users.js``` så ska vi ändra routes respons så att vi skickar en view kallad users.
 ```javascript
 // routes/users.js
@@ -305,7 +305,7 @@ Du kan nu prova att lägga till en footer som ska inkluderas på varje sida, fö
 
 Med den grunden på plats så kan vi börja titta på att få det att se ut som något. För detta så kommer vi att arbeta med Sass.
 
-### Sass
+## Sass
 För projektet så kommer vi att skriva Sass för att förkompilera vår css, våra stilar.
 
 Sass kan installeras med npm eller utan, för att installera paketet utan npm så går det att göra detta med apt under Ubuntu. Liknande finns
@@ -331,8 +331,8 @@ då kompileras det till css.
 
 Vi är nu redo att börja designa sidan. De första stilarna styr förhoppningsvis upp lite grundläggande användbarhet, som vi kan bygga vidare på. Läs mer om den här exempelsidans stilar under [Design](#design).
 
-#### style.sass
-Syntaxen för att skriva sass skiljer sig en del från vanlig css, men grunden är desamma. Det är tämligen likt Pug då det förlitar sig på korrekt indentering för att fungera och strukturera.
+### style.sass
+Syntaxen för att skriva sass skiljer något från vanlig css, men grunden är desamma. Det är tämligen likt Pug då det förlitar sig på korrekt indentering för att fungera och strukturera.
 Öppna dokumentet och skriv in följande.
 ```Sass
 // File: public/stylesheets/style.sass
@@ -371,8 +371,7 @@ h1
 ```
 Funkar det? Testa nu att skapa variabler för ett par färger på sidan. Fortsätt sedan här för att lära dig mer om [Sass](https://sass-lang.com/guide).
 
-## Design
-
+# Design
 För projektet så skapade jag ett par skisser med figma, du hittar dem [här](https://www.figma.com/file/tngmvFgOZ96E1xHm9Igr9o/Webbserver-node?node-id=0%3A1).
 Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. Men i detta arbetet så förbättrar vi produkten stegvis.
 
@@ -383,9 +382,9 @@ När jag arbetade med den mycket långa titeln, Webbserverprogrammering så stö
 Det är avvägningar som behöver göras oavsett om en har skisser att utgå från eller inte, men att han en skiss att stödja sig på genom designen underlättar alltid. Att formulera din ide och slipa på den är en del i en process som fortsätts när du kodar din html/css och att göra det i flera steg leder alltid till
 ett bättre slutresultat.
 
-### Från html till webbplats
+## Från html till webbplats
 
 
-## Markdown
+# Markdown
 
 [Markdown syntax](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
