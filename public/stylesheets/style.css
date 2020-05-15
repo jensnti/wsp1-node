@@ -5,7 +5,7 @@ body {
   font-family: "Hind Madurai", sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: #eaece9;
+  color: #dee1dd;
 }
 
 main .container {
@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #b7bcb3;
+  color: #bbc0b8;
 }
 
 h1, h2, h3, h4 {
@@ -148,7 +148,7 @@ p {
   }
 }
 .nav-link:hover {
-  color: #1d303a;
+  color: #203540;
 }
 
 .show {
