@@ -286,7 +286,7 @@ då kompileras det till css.
 ## Design
 
 För projektet så skapade jag ett par skisser med figma, du hittar dem [här](https://www.figma.com/file/tngmvFgOZ96E1xHm9Igr9o/Webbserver-node?node-id=0%3A1).
-Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. 
+Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. Men i detta arbetet så förbättrar vi produkten stegvis.
 
 Som exempel så letade jag reda på ett färgschema jag gillade först, vilket påminde mig om något under vatten. Jag gillade det, men hur jag använder det stöter på patrull när det gäller kontrast, så jag skruvade lite på hur ljusa/mörka färgerna är, men inte så mycket som kanske krävdes, eftersom jag tyckte jag förlorade känslan. Här gjorde jag en avvägning att behålla min design och inte skrota den pga. kontrast.
 
