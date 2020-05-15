@@ -249,9 +249,26 @@ Den struktur som vi kommer att använda för projektets views med pug är att vi
 våra andra layout filer.
 
 Så i index.pug så anropar vi layout.pug genom att skriva 
-```html
+```pug
   extends layout
 ```
+
+Layoutfilen är projektets html bas, här inkluderar du alla delar som du vill att samtliga sidor ska ärva genom extends.
+Så för att starta behöver vi allt annat som vi vanligtvis inkluderar i en validerande html5 sida.
+Öppna filen som skapats och kolla hur det ser ut och jämför med följande.
+
+```pug
+doctype html
+html(lang='sv')
+  head
+    meta(name='viewport' content='width=device-width,initial-scale=1.0')
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+```
+
+Jag har utvecklat meta delen något samt lagt till språk-attributet på html elementet.
 
 #### Index
 
