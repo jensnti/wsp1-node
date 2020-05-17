@@ -301,6 +301,24 @@ block content
 ```
 Testa nu att surfa runt på din sida, förhoppningsvis fungerar det. 
 
+För att visa vad vi kan göra med Pug tillsammans med express så ska vi nu skicka med data för ett antal users och sedan visa det med vår uppgraderade view. Börja med att 
+skapa en array med några användare i routes filen.
+```javascript
+// routes/users.js
+res.render('users', {'users': ['Hans', 'Moa', 'Bengt', 'Frans', 'Lisa'] });
+```
+Så detta ger oss tillgång till denna data i ```views/users.pug```. Om vi kollar på dokumentation för [iteration](https://pugjs.org/language/iteration.html) i Pugs manual så ser vi att det finns
+ett par exempel för hur detta kan göras. Vi kommer här att använda en iteration med formen, för varje user i users gör...
+Uppdatera filen med följande.
+```Pug
+//- views/users.pug
+ul
+  each user in users
+    li= user
+```
+Vi skapar här en lista där vi lägger till ett li element för varje index i users. Ladda om sidan och se resultatet.
+
+### Footer
 Du kan nu prova att lägga till en footer som ska inkluderas på varje sida, förfarandet är mer eller mindre detsamma som för navigationen. Skapa filen ```views/footer.pug``` och inkludera den från ```views/layout.pug```. I filen skapar du ett footer element.
 
 Med den grunden på plats så kan vi börja titta på att få det att se ut som något. För detta så kommer vi att arbeta med Sass.
@@ -369,7 +387,7 @@ $font: font-family: 'Roboto', sans-serif
 h1
   font-family: $font
 ```
-Funkar det? Testa nu att skapa variabler för ett par färger på sidan. Fortsätt sedan här för att lära dig mer om [Sass](https://sass-lang.com/guide).
+Funkar det? Testa nu att skapa variabler för ett par färger på sidan. Passa på att styla user-sidans lista också. Fortsätt sedan här för att lära dig mer om [Sass](https://sass-lang.com/guide).
 
 # Design
 För projektet så skapade jag ett par skisser med figma, du hittar dem [här](https://www.figma.com/file/tngmvFgOZ96E1xHm9Igr9o/Webbserver-node?node-id=0%3A1).
@@ -378,14 +396,20 @@ Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställni
 Som exempel så letade jag reda på ett färgschema jag gillade först, vilket påminde mig om något under vatten. Jag gillar det, men hur jag använder det på sidan får problem med kontrast. Så jag skruvade lite på hur kontrasterna, men inte så mycket som krävs av de testverktyg jag använder, eftersom jag tyckte jag förlorade känslan. Här gjorde jag en avvägning att behålla min design och inte skrota den på grund av testresultatet. Men det är viktigt att göra detta val tidigt, så att du inte behöver ändra färgerna på hela webbplatsen när du kodat färdigt, för att du aldrig kollade kontrasten. Här underlättar det väldigt mycket också om du använder Sass och tilldelar färgerna till variabler. Du kan dessutom använda Sass [funktioner](https://sass-lang.com/documentation/modules/color) för att manipulera färgerna.
 
 Just tanken om något under vatten ledde till bilden med bubblorna, något som jag skapade i Adobe Illustrator och sparade som SVG. Jag letade upp ett par ikoner och NTI logotypen, sparade dessa som SVG och la till.
-![Bubbles](https://raw.githubusercontent.com/jensnti/wsp1-node/master/public/images/bubbles-v2.svg){height=80px}
+<img src="https://raw.githubusercontent.com/jensnti/wsp1-node/master/public/images/bubbles-v2.svg" alt="Bubbles image" height="100px">
 
-När jag arbetade med den mycket långa titeln, Webbserverprogrammering så stötte jag på patrull på det tekniska. Det visade sig att ett väldigt långt ord som inte kan avstavas av webbläsaren pajjar hela sidan tillsammans med ```meta viewport scale```. Det stör ut hur resten av sidan skalas och resultatet blev hemskt. Lösningen blev att lägga till ett bindestreck mellan Webbserver och programmering, Webbserver-programmering. Inte vad jag kanske önskat, men enklaste och bästa lösningen. 
+När jag arbetade med den mycket långa titeln, Webbserverprogrammering så fick jag tekniska problem. Det visade sig att ett väldigt långt ord som inte kan avstavas av webbläsaren påverkar hur hela sidan ritas ut när det finns tillsammans med ```meta viewport scale```. I det här fallet påverkade det hur resten av sidan ritades ut och resultatet blev hemskt. Lösningen blev att lägga till ett bindestreck mellan Webbserver och programmering, Webbserver-programmering. Inte vad jag kanske önskat, men enklaste och bästa lösningen. Med HTML och CSS så försöker vi få text att se ut som något, vilket inte alltid fungerar som vi tänkt oss. Ibland är det inte ens möjligt, men med testning kan vi åtminstone upptäcka problem som vi på ett eller annat sätt får lösa.
 
-Det är avvägningar som behöver göras oavsett om en har skisser att utgå från eller inte, men att han en skiss att stödja sig på genom designen underlättar alltid. Att formulera din ide och slipa på den är en del i en process som fortsätts när du kodar din html/css och att göra det i flera steg leder alltid till
-ett bättre slutresultat.
+Det här är exempel på avvägningar som behöver göras oavsett om en har skisser att utgå från eller inte. Men att utgå från en skiss och en ide, ger dig ett stöd som alltid underlättar. Att formulera din ide och slipa på den är en del i en process som fortsätts när du kodar din html/css och att göra det i flera steg leder alltid till ett bättre slutresultat.
 
 ## Från html till webbplats
+På det stora hela så handlar det om att stegvis börja skapa sin skiss med hjälp av css stilar. Några viktiga saker att ha i åtanke är att inte försöka designa utan innehåll. Placeringen av element i html
+är beroende av andra element, så ditt innehåll kommer alltid påverka placeringen. Det andra är att det är väldigt viktigt att strukturen är korrekt och att elementen är korrekt stängda. Annars blir det väldigt
+svårt med stilarna och det kommer förmodligen resultera i att det inte blir som du önskar. För att göra detta så rekommenderar jag att du [validerar](https://validator.nu/) regelbundet. 
+
+Undvik att positionera absolut och tänk alltid på att ändra storleken på din webbläsare, för du kan inte förutsätta att användaren alltid kör samma upplösning som du.
+
+Kom även ihåg att inte fastna i evigheter på detaljer innan du ens har någon design.
 
 
 # Markdown
