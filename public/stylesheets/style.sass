@@ -32,7 +32,7 @@ body
   font-family: fonts.$body
   font-size: 1.2rem
   line-height: 1.5
-  color: lighten(colors.$color1, 10%)
+  color: scale-color(colors.$color1, $lightness: 30%)
 
 main
   .container
@@ -43,7 +43,7 @@ a
   text-decoration: none
 
   &:hover
-    color: darken(colors.$color1, 10%)
+    color: scale-color(colors.$color1, $lightness: -10%)
 
 h1, h2, h3, h4
   font-family: fonts.$header
@@ -130,7 +130,7 @@ p
     @include medium
       padding-left: .5rem
   &-link:hover
-    color: darken(colors.$color5, 10%)
+    color: scale-color(colors.$color5, $lightness: -30%)
 
   .active
     color: colors.$color4
