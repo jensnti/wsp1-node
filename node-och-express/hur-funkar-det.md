@@ -178,7 +178,7 @@ Uppdatering till package.json, i script delen.
 
 Vi kan sedan köra npm run compile och den kommer att köra Sass och söka efter eventuella ändringar i källkodsfilerna. Så när vi sparar vår Sass fil, då kompileras det till css.
 
-Vi är nu redo att börja designa sidan. De första stilarna styr förhoppningsvis upp lite grundläggande användbarhet, som vi kan bygga vidare på. Läs mer om den här exempelsidans stilar under [Design](../design.md).
+Vi är nu redo att börja designa sidan. De första stilarna styr förhoppningsvis upp lite grundläggande användbarhet, som vi kan bygga vidare på. Läs mer om den här exempelsidans stilar under [Design]().
 
 ### style.sass
 
