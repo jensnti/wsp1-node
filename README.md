@@ -140,7 +140,7 @@ rules: {
 ```
 {% endcode %}
 
-### Lär känna din app
+## Lär känna din app
 
 Nu är vår setup i stort sett klar för att börja ändra på vår app. Vi har installerat de paket som krävs och vi kan köra vår server. Nästa steg är att titta lite på Express filstruktur och hur du arbetar med det. Efter installationen så ser Express filstruktur ut såhär
 

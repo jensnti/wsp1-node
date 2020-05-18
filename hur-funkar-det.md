@@ -2,7 +2,7 @@
 
 För att titta på hur det fungerar så ska vi börja ändra i koden. För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt andra sidor. Express generator kommer med en router för en user sida som endast svarar med en resurs. Vi kommer att byta ut den routen för att svara med en user sida, så att vi kan testa och använda navigationen vi skapar.
 
-### Pug
+## Pug
 
 Express stöder ett flertal olika templat-motorer, i det här exemplet så kommer vi att arbeta med en som heter Pug. Varför Pug då, mest för att jag har använt den tidigare och kört den i kursen. Det har fungerat bra och de flesta har förstått sig på den. Pug är snarlikt html och relativt enkelt att komma igång med, syntaxen är förhållandevis enkel och det gör det enkelt att komma igång.
 
@@ -21,7 +21,7 @@ Jag ska inte upprepa [dokumentationen](https://pugjs.org/api/getting-started.htm
 
 En start kan vara att konvertera redan färdiga sidor till pug, det finns ett otal konverterare som du kan hitta genom [Google](https://www.google.com/search?q=html+to+pug&oq=html+to+pug&aqs=chrome..69i57j0l6j69i60.4848j0j7&sourceid=chrome&ie=UTF-8).
 
-#### Layout
+### Layout
 
 Den struktur som vi kommer att använda för projektets views med Pug är att vi utgår från filen layout.pug. Denna fil anropar vi sedan genom våra andra layout filer.
 
@@ -48,7 +48,7 @@ html(lang='sv')
 
 Jag har utvecklat meta delen något samt lagt till språk-attributet på html elementet.
 
-#### Index
+### Index
 
 När vi nu kollar på `views/index.pug` så är det viktigt att vi tittar på `routes/index.js` tillsammans med dem. Då det är routes filen som kallar på `res.render()` funktionen för att visa den view vi efterfrågar.
 
@@ -76,7 +76,7 @@ block content
 
 Här ser vi även på hur Pug hanterar title värdet som vi skickade till templaten. Läs mer om hur du jobbar med template locals [här](https://pugjs.org/language/interpolation.html).
 
-#### Nav
+### Nav
 
 En av fördelarna med Pug är att vi kan inkludera och extenda våra templater så vi kan återanvända kod. Det leder till enklare utveckling och mindre fel. Ett bra exempel på något som vi kan återanvända är en navigation på en webbsida. Så vi ska nu skapa och lägga till en top-navigation. Börja med att lägga till följande kod i `views/layout.pug` efter body taggen\(behåll det efterfölljande content blocket\).
 
@@ -103,7 +103,7 @@ nav
 
 Spara filerna och ladda om sidan, du kommer nu se att `nav.pug` inkluderas och att du kan följa länkarna. Klickar du på users så kommer enbart Express `res.send` resultat visas.
 
-#### Users
+### Users
 
 Vi ska nu testa att ändra den route som Express använder för users. I `routes/users.js` så ändrar vi routens respons så att vi skickar en view kallad users.
 
@@ -147,13 +147,13 @@ ul
 
 Vi skapar här en lista där vi lägger till ett li element för varje index i users. Ladda om sidan och se resultatet.
 
-#### Footer
+### Footer
 
 Du kan nu prova att lägga till en footer som ska inkluderas på varje sida, förfarandet är mer eller mindre detsamma som för navigationen. Skapa filen `views/footer.pug` och inkludera den från `views/layout.pug`. I filen skapar du ett footer element.
 
 Med den grunden på plats så kan vi börja titta på att få det att se ut som något. För detta så kommer vi att arbeta med Sass.
 
-### Sass
+## Sass
 
 För projektet så kommer vi att skriva Sass för att förkompilera vår css, våra stilar.
 
@@ -180,7 +180,7 @@ Vi kan sedan köra npm run compile och den kommer att köra Sass och söka efter
 
 Vi är nu redo att börja designa sidan. De första stilarna styr förhoppningsvis upp lite grundläggande användbarhet, som vi kan bygga vidare på. Läs mer om den här exempelsidans stilar under [Design](design.md).
 
-#### style.sass
+### style.sass
 
 Syntaxen för att skriva Sass skiljer något från vanlig css, men grunden är desamma. Det är tämligen likt Pug då det förlitar sig på korrekt indentering för att fungera och strukturera. Öppna dokumentet och skriv in följande.
 
