@@ -1,3 +1,7 @@
+---
+description: Ett första projekt och installation
+---
+
 # Introduktion
 
 ## Installation och förberedelse

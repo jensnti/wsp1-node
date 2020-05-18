@@ -1,3 +1,7 @@
+---
+description: Pug och att skapa nytt material
+---
+
 # Hur funkar det?
 
 För att titta på hur det fungerar så ska vi börja ändra i koden. För att ändra på vår html och testa hur det fungerar så ska vi skapa en meny som gör att vi kan komma åt andra sidor. Express generator kommer med en router för en user sida som endast svarar med en resurs. Vi kommer att byta ut den routen för att svara med en user sida, så att vi kan testa och använda navigationen vi skapar.
