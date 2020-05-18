@@ -1,6 +1,6 @@
 # Introduktion Node.js och Express
 
-Läs på [Gitbook, Webbserverprogrammering](https://jens-andreasson.gitbook.io/webbserverprogrammering/)
+Läs på [Gitbook, Webbserverprogrammering](https://jens-andreasson.gitbook.io/webbserverprogrammering/node-och-express)
 
  1. [Installation och förberedelse](#installation-och-förberedelse)
     * [Ett första projekt](#ett-första-projekt)
