@@ -24,3 +24,11 @@ Undvik att positionera absolut och tänk alltid på att ändra storleken på din
 
 Kom även ihåg att inte fastna i evigheter på detaljer innan du ens har någon design.
 
+## Projektet
+
+I denna commit är style filens grunder mer eller mindre klara [https://github.com/jensnti/wsp1-node/tree/9bf4cf212b1bc08e672837286968539cce34c2fe](https://github.com/jensnti/wsp1-node/tree/9bf4cf212b1bc08e672837286968539cce34c2fe)
+
+Style filen efter Sass kompilering, [https://raw.githubusercontent.com/jensnti/wsp1-node/9bf4cf212b1bc08e672837286968539cce34c2fe/public/stylesheets/style.css](https://raw.githubusercontent.com/jensnti/wsp1-node/9bf4cf212b1bc08e672837286968539cce34c2fe/public/stylesheets/style.css)
+
+
+
