@@ -1,3 +1,9 @@
+mixin nav-link(href, name)
+    if name === title
+        a.nav-link.active(href=href)= name
+    else
+        a.nav-link(href=href)= name
+
 nav.navbar
   a.brand(href="/")
     img(src='/images/nti_icon.svg' alt='NTI-logotyp')
@@ -6,6 +12,6 @@ nav.navbar
   .navbar-collapse
     ul.nav
       li.nav-item
-        a.nav-link(href='/') Home
+        +nav-link('/', 'Hem')
       li.nav-item
-        a.nav-link(href='/users') Users
+        +nav-link('/users', 'Användare')

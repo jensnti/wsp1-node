@@ -223,13 +223,15 @@ våra andra layout filer.
 
 Så i index.pug så anropar vi layout.pug genom att skriva 
 ```pug
-extends layout
+  extends layout
 ```
+Spara filerna och ladda om sidan, du kommer nu se att ```nav.pug``` inkluderas och att du kan följa länkarna. Klickar du på users så kommer enbart Express ```res.send``` resultat visas.
+
 Layoutfilen är projektets html bas, här inkluderar du alla delar som du vill att samtliga sidor ska ärva genom extends.
 Så för att starta behöver vi allt annat som vi vanligtvis inkluderar i en validerande html5 sida.
 Öppna filen som skapats och kolla hur det ser ut och jämför med följande.
-```Pug
-//- views/layout.pug
+
+```pug
 doctype html
 html(lang='sv')
   head
@@ -239,69 +241,10 @@ html(lang='sv')
   body
     block content
 ```
-Jag har utvecklat meta delen något samt lagt till språk-attributet på html elementet. 
 
-### Index
-När vi nu kollar på ```views/index.pug``` så är det viktigt att vi tittar på ```routes/index.js``` tillsammans med dem. Då det är routes filen som kallar på ```res.render()``` funktionen för att visa den view vi efterfrågar.
-```javascript
-// File: routes/index.js
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-```
-Om vi nu tittat på där [render](https://expressjs.com/en/api.html#res.render) funktionen kallas så ser vi att den inkluderar först den view vi ska använda och sedan så skickar den med ett objekt till viewen. I det här fallet så innehåller objektet parametern title med värdet Express.
-```Pug
-//- views/index.pug
-extends layout
+Jag har utvecklat meta delen något samt lagt till språk-attributet på html elementet.
 
-block content
-  main
-    h1= title
-    p Welcome to #{title}
-```
-Här ser vi även på hur Pug hanterar title värdet som vi skickade till templaten. Läs mer om hur du jobbar med template locals [här](https://pugjs.org/language/interpolation.html).
-
-### Nav
-En av fördelarna med Pug är att vi kan inkludera och extenda våra templater så vi kan återanvända kod. Det leder till enklare utveckling och mindre fel.
-Ett bra exempel på något som vi kan återanvända är en navigation på en webbsida. Så vi ska nu skapa och lägga till en top-navigation.
-Börja med att lägga till följande kod i ```views/layout.pug``` efter body taggen(behåll det efterfölljande content blocket).
-```Pug
-//- views/layout.pug
-body
-block nav
-  include nav.pug
-```
-Här anger vi ett nav block följt av en include där vi läser in filen ```nav.pug```. Läs mer om Pugs [arv](https://pugjs.org/language/inheritance.html).
-När vi nu laddar vår layout så kommer innehållet i nav.pug inkluderas innan vårt content.
-Nästa steg blir att skapa filen och i den kommer vi att skapa ett nav element med en lista i.
-```Pug
-//- views/nav.pug
-nav
-  ul
-    li
-      a(href='/') Home
-    li
-      a(href='/users') Users
-```
-Spara filerna och ladda om sidan, du kommer nu se att ```nav.pug``` inkluderas och att du kan följa länkarna. Klickar du på users så kommer enbart Express ```res.send``` resultat visas.
-
-### Users
-Vi ska nu testa att ändar den route som express har för users. I ```routes/users.js``` så ska vi ändra routes respons så att vi skickar en view kallad users.
-```javascript
-// routes/users.js
-res.render('users', {});
-```
-När vi skapat routen så behöver vi sedan skapa en views fil för detta, döp den till ```views/users.pug```. Du kan basera denna fil på innehållet i index viewen.
-```Pug
-//- views/users.pug
-extends layout
-
-block content
-  main
-    h1= title
-```
-Testa nu att surfa runt på din sida, förhoppningsvis fungerar det. 
+#### Index
 
 För att visa vad vi kan göra med Pug tillsammans med express så ska vi nu skicka med data för ett antal users och sedan visa det med vår uppgraderade view. Börja med att 
 skapa en array med några användare i routes filen.
@@ -394,13 +337,6 @@ Funkar det? Testa nu att skapa variabler för ett par färger på sidan. Passa p
 # Design
 För projektet så skapade jag ett par skisser med figma, du hittar dem [här](https://www.figma.com/file/tngmvFgOZ96E1xHm9Igr9o/Webbserver-node?node-id=0%3A1).
 Design är svårt och ett evigt pillande fram och tillbaka mellan olika ställningstaganden. Under processen så märker en ofta också problem med designen, vilket kan vara både estetiska och tekniska. Men i detta arbetet så förbättrar vi produkten stegvis.
-
-Som exempel så letade jag reda på ett färgschema jag gillade först, vilket påminde mig om något under vatten. Jag gillar det, men hur jag använder det på sidan får problem med kontrast. Så jag skruvade lite på hur kontrasterna, men inte så mycket som krävs av de testverktyg jag använder, eftersom jag tyckte jag förlorade känslan. Här gjorde jag en avvägning att behålla min design och inte skrota den på grund av testresultatet. Men det är viktigt att göra detta val tidigt, så att du inte behöver ändra färgerna på hela webbplatsen när du kodat färdigt, för att du aldrig kollade kontrasten. Här underlättar det väldigt mycket också om du använder Sass och tilldelar färgerna till variabler. Du kan dessutom använda Sass [funktioner](https://sass-lang.com/documentation/modules/color) för att manipulera färgerna.
-
-Just tanken om något under vatten ledde till bilden med bubblorna, något som jag skapade i Adobe Illustrator och sparade som SVG. Jag letade upp ett par ikoner och NTI logotypen, sparade dessa som SVG och la till.
-<img src="https://raw.githubusercontent.com/jensnti/wsp1-node/master/public/images/bubbles-v2.svg" alt="Bubbles image" height="100px">
-
-När jag arbetade med den mycket långa titeln, Webbserverprogrammering så fick jag tekniska problem. Det visade sig att ett väldigt långt ord som inte kan avstavas av webbläsaren påverkar hur hela sidan ritas ut när det finns tillsammans med ```meta viewport scale```. I det här fallet påverkade det hur resten av sidan ritades ut och resultatet blev hemskt. Lösningen blev att lägga till ett bindestreck mellan Webbserver och programmering, Webbserver-programmering. Inte vad jag kanske önskat, men enklaste och bästa lösningen. Med HTML och CSS så försöker vi få text att se ut som något, vilket inte alltid fungerar som vi tänkt oss. Ibland är det inte ens möjligt, men med testning kan vi åtminstone upptäcka problem som vi på ett eller annat sätt får lösa.
 
 Det här är exempel på avvägningar som behöver göras oavsett om en har skisser att utgå från eller inte. Men att utgå från en skiss och en ide, ger dig ett stöd som alltid underlättar. Att formulera din ide och slipa på den är en del i en process som fortsätts när du kodar din html/css och att göra det i flera steg leder alltid till ett bättre slutresultat.
 

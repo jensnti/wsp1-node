@@ -150,6 +150,12 @@ p {
 .nav-link:hover {
   color: #203540;
 }
+.nav .active {
+  color: #35686e;
+}
+.nav .active:hover {
+  color: #2e4c5c;
+}
 
 .show {
   display: block !important;

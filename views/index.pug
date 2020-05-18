@@ -1,7 +1,8 @@
 extends layout
 
-block title
-    title Home
+block head
+  -var title = "Hem"
+  title Webbserverprogrammering - #{title}
 
 block content
   main
@@ -20,7 +21,7 @@ block content
         a(href='https://github.com/jensnti/wsp1-node') här
         | .
       p Förutom att jobba med Node och express så kommer vi att titta på templat-motorn 
-        a(href='https://pugjs.org/') pug 
+        a(href='https://pugjs.org/') Pug 
         | som vi använder tillsammans med 
         a(href='https://sass-lang.com/') Sass 
         | för sidans front-end.
