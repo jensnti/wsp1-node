@@ -13,6 +13,7 @@
     "http-errors": "~1.6.3",
     "jstransformer-markdown-it": "^2.1.0",
     "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
     "node-sass-middleware": "0.11.0",
     "pug": "^2.0.4",
     "sass": "^1.26.5"
