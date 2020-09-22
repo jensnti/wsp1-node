@@ -8,12 +8,12 @@ router.get('/', function (req, res, next) {
 
   db.query(sql, function (err, data, fields) {
     if (err) throw err;
-    res.json({
-      status: 200,
-      data,
-      message: 'User lists retrieved successfully'
-    });
-    // res.render('test', { data });
+    // res.json({
+    //   status: 200,
+    //   data,
+    //   message: 'User lists retrieved successfully'
+    // });
+    res.render('test', { data });
   });
 
   // res.render('index', { title: 'Webbserver-programmering med Node.js' });

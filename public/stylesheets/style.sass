@@ -1,5 +1,5 @@
-@use 'colors'
-@use 'fonts'
+@import 'colors'
+@import 'fonts'
 
 @mixin small
   @media (min-width: 576px)
@@ -28,32 +28,32 @@
 body
   flex-direction: column
   flex-wrap: nowrap
-  background-color: colors.$color3
-  font-family: fonts.$body
+  background-color: $color3
+  font-family: $body
   font-size: 1.2rem
   line-height: 1.5
-  color: scale-color(colors.$color1, $lightness: 30%)
+  color: scale-color($color1, $lightness: 30%)
 
 main
   .container
     padding-top: 6rem
 
 a
-  color: colors.$color1
+  color: $color1
   text-decoration: none
 
   &:hover
-    color: scale-color(colors.$color1, $lightness: -10%)
+    color: scale-color($color1, $lightness: -10%)
 
 h1, h2, h3, h4
-  font-family: fonts.$header
+  font-family: $header
   margin-bottom: 1rem
   line-height: 1.2
   font-weight: 600
 
 h1
   font-size: 3rem
-  color: colors.$color5
+  color: $color5
   @include medium-max
     font-size: 2rem
 
@@ -88,13 +88,13 @@ p
   flex-flow: row nowrap
   justify-content: flex-start
   align-items: center
-  background-color: transparentize(colors.$color3, .05)
+  background-color: transparentize($color3, .05)
   z-index: 100
   position: fixed
   top: 0
   right: 0
   left: 0
-  padding: 1rem 2rem
+  padding: 1rem 1rem
   @include medium-max
     justify-content: space-between
     flex-wrap: wrap
@@ -121,21 +121,21 @@ p
 .nav
   display: flex
   flex-direction: row
-  font-family: fonts.$header
+  font-family: $header
   font-size: 1.4rem
   @include medium-max
     flex-direction: column
   &-link
-    color: colors.$color5
+    color: $color5
     @include medium
       padding-left: .5rem
   &-link:hover
-    color: scale-color(colors.$color5, $lightness: -30%)
+    color: scale-color($color5, $lightness: -30%)
 
   .active
-    color: colors.$color4
+    color: $color4
     &:hover
-      color: colors.$color5
+      color: $color5
 
 .show
   display: block !important
@@ -156,16 +156,16 @@ p
 
 .lead
   font-size: 1.4rem
-  font-family: fonts.$lead
+  font-family: $lead
 
 .footer
   margin-top: auto
   padding-top: 8rem
   padding-bottom: 4rem
-  background-image: linear-gradient(colors.$color3, colors.$color5)
+  background-image: linear-gradient($color3, $color5)
 
 .mute
-  color: transparentize(colors.$color2, 0.2)
+  color: transparentize($color1, 0.4)
 
 .small
   font-size: 1rem

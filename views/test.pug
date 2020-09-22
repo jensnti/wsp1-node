@@ -1,0 +1,13 @@
+extends layout
+
+block head
+  -var title = "Test"
+  title Webbserverprogrammering - #{title}
+
+block content
+  main
+    .container
+      h1= title
+      ul.list
+        each value in data[0]
+          li= value
