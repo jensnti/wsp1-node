@@ -9,5 +9,5 @@ block content
     .container
       h1= title
       ul.list
-        each value in data[0]
-          li= value
+        each row in result
+          li= row.body
