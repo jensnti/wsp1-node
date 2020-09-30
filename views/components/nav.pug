@@ -1,8 +1,8 @@
 mixin nav-link(href, name)
-    if name === title
-        a.nav-link.active(href=href)= name
-    else
-        a.nav-link(href=href)= name
+  if name === title
+    a.nav-link.active(href=href)= name
+  else
+    a.nav-link(href=href)= name
 
 nav.navbar
   a.brand(href="/")

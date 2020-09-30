@@ -1,5 +1,15 @@
 extends layout
 
+mixin card(body, update, author)
+  .card
+    .card-body
+      p.card-text= body
+    .card-footer.d-flex
+      p.small Posted by 
+        a(href="#")= author 
+        |  on 
+        time(date="#{updated}")= update 
+
 block head
   -var title = "Test"
   title Webbserverprogrammering - #{title}
@@ -8,6 +18,8 @@ block content
   main
     .container
       h1= title
-      ul.list
-        each row in result
-          li= row.body
+      each row in result
+        p #{row.body}
+        | Posted at #{row.updated_at}
+        | Posted at #{row.name}
+        //- +card(row.body, row.updated_at, row.name)
