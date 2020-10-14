@@ -8,7 +8,16 @@ block content
   main
     .container
       h1= title
-      p.lead Här är ett exempel på iteration
-      ul.list
-        each user in users
-          li= user
+      if users
+        p.lead Här är ett exempel på iteration
+        ul.list
+          each user in users
+            li= user
+
+      if user[0]
+        p= user[0].name
+        h3 Användarens meeps
+        if meeps
+          ul.list
+            each meep in meeps
+              li= meep.body
