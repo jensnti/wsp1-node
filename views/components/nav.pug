@@ -4,16 +4,25 @@ mixin nav-link(href, name)
   else
     a.nav-link(href=href)= name
 
-nav.navbar
-  a.brand(href="/")
-    img(src='/images/nti_icon.svg' alt='NTI-logotyp')
-  button.navbar-toggle
-    img.navbar-toggle-icon(src='/images/menu-24px.svg' alt="Menyikon")
-  .navbar-collapse
-    ul.nav
-      li.nav-item
-        +nav-link('/', 'Hem')
-      li.nav-item
-        +nav-link('/users', 'Användare')
-      li.nav-item
-        +nav-link('/test', 'Databastest')
+block nav
+  nav.navbar
+    .container
+      a.brand(href="/")
+        svg.nav-icon(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 206.86 182.08' width="48")
+          path(d='M145.67,121.24V62.9H127.52V48.41h50.9V62.9H160.26v58.34Z')
+          path(d='M72.13,121.24H57.55V46.78h3.87L98.25,89.62V48.41h14.68v74.37h-3.87L72.13,81.56Z')
+          path(d='M193,121.24V48.41h14.59v72.83Z')
+          path(d='M79.43,15.4V.8H.72V82.52c0,55.72,28.21,73.53,74.23,98l4.48,2.37V166.35l-.56-.29C37.11,143.75,15.31,129.9,15.31,82.52V15.4Z')
+
+      button.nav-icon.navbar-toggle
+        svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width="32")
+          path(d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z')
+
+      .navbar-collapse
+        ul.nav
+          li.nav-item
+            +nav-link('/', 'Hem')
+          li.nav-item
+            +nav-link('/users', 'Användare')
+          li.nav-item
+            +nav-link('/test', 'Databastest')

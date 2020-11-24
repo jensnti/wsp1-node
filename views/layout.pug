@@ -13,14 +13,10 @@ html.h-100(lang='sv')
       img-src     'self' data: content:;\
       media-src   *;\
     ")
-    link(href='https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Lora:ital@1&family=Montserrat:wght@400;600&display=swap', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body.h-100.d-flex
+  body.h-100.flex.flex-column
     block nav
-      include components/nav.pug
     block content
     block footer
-      include components/footer.pug
     script(src='/javascripts/main.js')
-    

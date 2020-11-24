@@ -1,0 +1,25 @@
+@import 'media'
+
+.navbar-toggle
+  border: none
+  background-color: transparent
+  svg
+    margin-top: -.5rem
+
+.collapse
+  display: block !important
+  width: 100%
+
+.navbar-collapse
+  display: block
+
+@include medium
+  .navbar-toggle
+    display: none
+
+@include medium-max
+  .navbar-collapse
+    display: none
+
+  .nav
+    flex-direction: column

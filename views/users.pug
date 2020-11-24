@@ -4,20 +4,26 @@ block head
   -var title = "Användare"
   title Webbserverprogrammering - #{title}
 
+block nav
+  include components/nav.pug
+
 block content
-  main
+  main.pt-3
     .container
-      h1= title
+      h1.page-heading= title
       if users
         p.lead Här är ett exempel på iteration
         ul.list
           each user in users
             li= user
 
-      if user[0]
-        p= user[0].name
+      if user
+        p= user.name
         h3 Användarens meeps
-        if meeps
+        if tweets
           ul.list
-            each meep in meeps
-              li= meep.body
+            each tweet in tweets
+              li= tweet.body
+
+block footer
+  include components/footer.pug

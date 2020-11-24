@@ -14,12 +14,17 @@ block head
   -var title = "Test"
   title Webbserverprogrammering - #{title}
 
+block nav
+  include components/nav.pug
+
 block content
-  main
+  main.pt-3
     .container
-      h1= title
+      h1.page-heading= title
       each row in result
         p #{row.body}
         | Posted at #{row.updated_at}
         | Posted at #{row.name}
         //- +card(row.body, row.updated_at, row.name)
+block footer
+  include components/footer.pug

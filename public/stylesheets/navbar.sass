@@ -1,0 +1,92 @@
+/* Navbar css */
+.navbar
+  padding: 1rem
+  background-color: $secondary
+  font-size: 1.5rem
+
+.navbar
+  .container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    @include medium
+      justify-content: start
+/* Making navbar fixed to top */
+.fixed-top
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: 1000
+
+/* List styles for navigation */
+.nav
+  list-style: none
+  display: flex
+  flex-direction: row
+
+  &-item
+    padding-right: 1rem
+
+
+  &-item:first-child
+    padding-left: 2rem
+
+/* brand */
+.brand
+  white-space: nowrap
+
+/* Nav list anchors */
+a
+  text-decoration: none
+
+.nav-link
+  color: $light
+  font-weight: 600
+  text-transform: uppercase
+
+  &:hover
+    color: darken($light, 20%)
+
+.active
+  font-weight: 600
+
+/* CSS for dropdown */
+.dropdown
+  position: relative
+  display: inline-block
+
+  &-content
+    display: none
+    position: absolute
+    background-color: #f9f9f9
+    min-width: 10rem
+    box-shadow: 0px 8px 16px 0px $dark
+    background-color: $light
+    padding: .5rem
+    z-index: 1010
+
+  &-item
+    padding: .25rem .5rem
+
+  &:hover .dropdown-content
+    display: flex
+    flex-direction: column
+
+/* For small screens */
+
+@media (max-width: 768px)
+  .navbar
+    flex-direction: column
+    align-items: flex-start
+
+  .nav
+    flex-direction: column
+
+  .nav-item:first-child
+    padding-left: 0rem
+
+.nav-icon
+  fill: $light
+  &:hover
+    fill: darken($light, 20%)
