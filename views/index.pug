@@ -11,10 +11,13 @@ block content
     main.pt-3
       .container
         h1.page-heading= title
-        p.lead Välkommen! Det här är ett samlingsmaterial för att komma igång med Node och Express i kurserna webbutveckling och webbserverprogrammering. 
-          | Materialet är stort och innehåller många steg, så det är viktigt att du tar dig tid till att arbeta
-          | dig igenom det. Den här sidan tjänar som en introduktion och ett exempel.
-        p.pt-1 Materialets fokus är Node och Express, men det omfattar mycket mer än så för att skapa stacken.
+        p.lead Välkommen! Det här är ett samlingsmaterial för att komma igång med 
+          | Node och Express i kurserna webbutveckling och webbserverprogrammering. 
+          | Materialet är stort och innehåller många steg, så det är viktigt att 
+          | du tar dig tid till att arbeta dig igenom det. 
+          | Den här sidan tjänar som en introduktion och ett exempel. 
+        p.pt-1 Materialets fokus är Node och Express, men det omfattar mycket mer 
+          | än så för att skapa stacken. 
         ul.list.pt-1
           li 
             a(href='https://nodejs.org/') Node.js 
@@ -23,16 +26,23 @@ block content
             a(href='https://expressjs.com/') Express 
             | är ett ramverk för kodandet av Node-applikationer.
         p.pt-1
-          | Koden och instruktionerna till den här sidan finns på git, du hittar repot  
+          | Koden och instruktionerna till den här sidan finns på git, du hittar repot 
           a(href='https://github.com/jensnti/wsp1-node') här
           | .
-        p.pt-1 Tillsammans med Express kommer du att få använda templat-motorn 
+        p.pt-1 Tillsammans med Express kommer du att använda template-motorn 
           a(href='https://pugjs.org/') Pug 
-          | tillsammans med
+          | för HTML och 
           a(href='https://sass-lang.com/') Sass 
-          | för att skapa front-end design och innehåll.
-        p.pt-1 För att utöka funktionen och skapa en dynamisk webbplats kommer du få arbeta med databaser.
-          | Databasen är MySQL som använder språket structured query language(SQL).
+          | för CSS. 
+        p.pt-1 För att utöka funktionen och skapa en dynamisk webbplats kommer du 
+          | att arbeta med databaser. 
+          | Databashanteraren är MySQL som använder språket structured query language(SQL).
+
+        h2.pt-1 
+        p För att komma åt sidan databastest behöver du först importera 
+          a(href="meeps.sql")  databasen 
+          | samt skapa en dotenv fil med dina inloggningsuppgifter. Kopiera filen 
+          | .env-example i serverrooten till .env och fyll i den.
 
 block footer
   include components/footer.pug

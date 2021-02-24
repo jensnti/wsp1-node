@@ -21,10 +21,14 @@ block content
   main.pt-3
     .container
       h1.page-heading= title
-      each row in result
-        p #{row.body}
-        | Posted at #{row.updated_at}
-        | Posted at #{row.name}
-        //- +card(row.body, row.updated_at, row.name)
+      if result
+        each row in result
+          p #{row.body}
+          | Posted at #{row.updated_at}
+          | Posted at #{row.name}
+          //- +card(row.body, row.updated_at, row.name)
+      else 
+        p Databasen verkar ha stött på problem. Se till att du har importerat
+        | tabellerna och att du skapat en dotenv fil med dina inloggningsuppgifter.
 block footer
   include components/footer.pug
